@@ -2,12 +2,14 @@ stages:
   train:
     cmd: python train1.py
     deps:
-      - train.py
+      - train1.py
       - data.csv
     outs:
       - model.pkl
     metrics:
-      - metrics.txt
+      - metrics.json
     params:
       - train.fit_intercept
+      - train.test_size
+      - train.random_state
 
