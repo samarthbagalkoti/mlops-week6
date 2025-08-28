@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/751812487515125465/16fdf3250e7545579783db8e5ab8fb7b/artifacts
+end_time: 1756381038886
+entry_point_name: ''
+experiment_id: '751812487515125465'
+lifecycle_stage: active
+run_id: 16fdf3250e7545579783db8e5ab8fb7b
+run_name: able-kit-954
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756381038582
+status: 3
+tags: []
+user_id: root
