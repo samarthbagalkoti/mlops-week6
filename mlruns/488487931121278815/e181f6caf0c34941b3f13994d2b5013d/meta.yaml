@@ -1,0 +1,14 @@
+artifact_uri: file:///root/mlops-preparation/mlops-week6/mlruns/488487931121278815/e181f6caf0c34941b3f13994d2b5013d/artifacts
+end_time: 1756378590677
+entry_point_name: ''
+experiment_id: '488487931121278815'
+lifecycle_stage: active
+run_id: e181f6caf0c34941b3f13994d2b5013d
+run_name: lr-run
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756378587432
+status: 3
+tags: []
+user_id: root

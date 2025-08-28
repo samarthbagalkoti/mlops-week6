@@ -1,0 +1,6 @@
+artifact_location: file:///root/mlops-preparation/mlops-week6/mlruns/488487931121278815
+creation_time: 1756378587367
+experiment_id: '488487931121278815'
+last_update_time: 1756378587367
+lifecycle_stage: active
+name: linear-regression-baseline

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/751812487515125465/c204fc82c5004acd869ad9f1b0ffa508/artifacts
+end_time: 1756378966959
+entry_point_name: ''
+experiment_id: '751812487515125465'
+lifecycle_stage: active
+run_id: c204fc82c5004acd869ad9f1b0ffa508
+run_name: unequaled-swan-129
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756378966655
+status: 3
+tags: []
+user_id: root

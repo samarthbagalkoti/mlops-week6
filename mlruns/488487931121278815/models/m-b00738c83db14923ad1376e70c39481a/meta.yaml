@@ -1,0 +1,10 @@
+artifact_location: file:///root/mlops-preparation/mlops-week6/mlruns/488487931121278815/models/m-b00738c83db14923ad1376e70c39481a/artifacts
+creation_timestamp: 1756378587462
+experiment_id: '488487931121278815'
+last_updated_timestamp: 1756378590675
+model_id: m-b00738c83db14923ad1376e70c39481a
+model_type: null
+name: model
+source_run_id: e181f6caf0c34941b3f13994d2b5013d
+status: 2
+status_message: null

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/c093b1c23c1543aea83587b64a2ce660/artifacts
+end_time: 1756377290612
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c093b1c23c1543aea83587b64a2ce660
+run_name: fun-horse-469
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756377290591
+status: 4
+tags: []
+user_id: root
