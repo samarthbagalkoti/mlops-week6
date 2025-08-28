@@ -8,4 +8,6 @@ stages:
       - model.pkl
     metrics:
       - metrics.txt
+    params:
+      - train.fit_intercept
 
