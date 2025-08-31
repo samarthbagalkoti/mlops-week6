@@ -1,0 +1,7 @@
+digest: b596c317
+name: dataset
+profile: '{"num_rows": 4, "num_elements": 4}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "feature", "required": true}]}'
+source: '{"tags": {"mlflow.user": "root", "mlflow.source.name": "train_register.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "bbfe91b200ce087dfb49bb8896267a48b26efae8"}}'
+source_type: code

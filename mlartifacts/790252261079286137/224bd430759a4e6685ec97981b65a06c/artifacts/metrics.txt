@@ -1,0 +1,1 @@
+Model: LinearRegression, R2: 1.0
