@@ -31,7 +31,7 @@ clean:
 	rm -rf mlruns mlflow.db .pytest_cache __pycache__ nohup.out
 
 start-mlflow:
-	MLFLOW_TRACKING_URI= http://54.91.101.120:8081 nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root s3://$(MLF_ART_BUCKET)/artifacts --host 0.0.0.0 --port 5000 &
+	MLFLOW_TRACKING_URI= http://54.91.101.120:8081 nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root s3://$(MLF_ART_BUCKET)/artifacts --host 0.0.0.0 --port 8081 &
 
 dvc-push:
 	dvc push
