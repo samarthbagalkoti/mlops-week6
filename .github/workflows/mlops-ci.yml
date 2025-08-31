@@ -22,7 +22,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       # We run a local tracking server to enable registry operations
-      MLFLOW_TRACKING_URI: "http://54.91.101.120:8001"
+      MLFLOW_TRACKING_URI: "http://54.91.101.120:8081"
 
     steps:
       - name: Checkout
