@@ -1,8 +1,8 @@
 aliases:
-  staging: '10'
+  staging: '16'
 creation_timestamp: 1756629792456
 deployment_job_id: null
 deployment_job_state: null
 description: ''
-last_updated_timestamp: 1756635263202
+last_updated_timestamp: 1756637346252
 name: w6-simple-regressor
