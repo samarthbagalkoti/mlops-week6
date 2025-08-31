@@ -22,7 +22,7 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       # We run a local tracking server to enable registry operations
-      MLFLOW_TRACKING_URI: "http://127.0.0.1:5000"
+      MLFLOW_TRACKING_URI: "http://54.91.101.120:8001"
 
     steps:
       - name: Checkout
@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.12"
 
       - name: Cache pip
         uses: actions/cache@v4
@@ -46,10 +46,7 @@ jobs:
 
       - name: Start MLflow tracking server (SQLite backend)
         run: |
-          nohup mlflow server \
-            --backend-store-uri sqlite:///mlflow.db \
-            --default-artifact-root ./mlruns \
-            --host 127.0.0.1 --port 5000 >/dev/null 2>&1 &
+          mlflow server --host 0.0.0.0 --port 8081
           # Give the server a moment to start
           sleep 5
 
