@@ -1,0 +1,82 @@
+name: mlops-ci
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "**" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mlops-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test-train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      PYTHONUNBUFFERED: "1"
+      # We run a local tracking server to enable registry operations
+      MLFLOW_TRACKING_URI: "http://127.0.0.1:5000"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Cache pip
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: make setup
+
+      - name: Start MLflow tracking server (SQLite backend)
+        run: |
+          nohup mlflow server \
+            --backend-store-uri sqlite:///mlflow.db \
+            --default-artifact-root ./mlruns \
+            --host 127.0.0.1 --port 5000 >/dev/null 2>&1 &
+          # Give the server a moment to start
+          sleep 5
+
+      - name: Unit tests
+        run: make test
+
+      - name: Reproduce pipeline (DVC)
+        run: make repro
+
+      - name: Train + Register models
+        run: make register
+
+      - name: Gate on metrics (R2)
+        run: make gate
+
+      - name: Upload run artifacts (models, metrics, mlruns)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ml-artifacts-${{ github.run_id }}
+          path: |
+            metrics.txt
+            *.pkl
+            mlruns
+            mlflow.db
+
+      # Only on pushes to main, promote best to Staging
+      - name: Promote best model to Staging
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/main')
+        run: make promote
